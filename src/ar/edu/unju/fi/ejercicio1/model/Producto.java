@@ -22,13 +22,6 @@ public class Producto {
 		this.origenFabricacion = origenFabricacion;
 		this.categoria = categoria;
 	}
-	
-	public Producto(String codigo, String descripcion, double precioU) {
-		super();
-		this.codigo = codigo;
-		this.descripcion = descripcion;
-		this.precioU = precioU;
-	}
 
 	public String getCodigo() {
 		return codigo;
