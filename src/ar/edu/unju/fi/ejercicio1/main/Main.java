@@ -30,13 +30,10 @@ public class Main {
 				case 1:
 						System.out.println("Ingrese codigo: ");
 						codigo= sc.next();
-						producto.setCodigo(codigo);
 						System.out.println("Ingrese descripcion: ");
 						descripcion= sc.next();
-						producto.setDescripcion(descripcion);
 						System.out.println("Ingrese precio unitario: ");
 						precioU=sc.nextDouble();
-						producto.setPrecioU(precioU);
 						do {
 							System.out.println("---Origen de Fabricacion---");
 							System.out.println("1- Argentina");
@@ -94,7 +91,7 @@ public class Main {
 							}
 						}while(band==false);
 						opc=0;
-						listaProducto.add(producto);
+						listaProducto.add(new Producto(codigo, descripcion, precioU, producto.getOrigenFabricacion(), producto.getCategoria()));
 						break;
 				case 2:
 						if(listaProducto.size()>0) {
@@ -112,9 +109,11 @@ public class Main {
 							for(int i=0;i<listaProducto.size() && band==true;i++) {
 								if(listaProducto.get(i).getCodigo().equals(codigo)) {
 									System.out.println("Ingrese descripcion: ");
-									listaProducto.get(i).setDescripcion(sc.next());
+									descripcion=sc.next();
+									listaProducto.get(i).setDescripcion(descripcion);
 									System.out.println("Ingrese precio unitario: ");
-									listaProducto.get(i).setPrecioU(sc.nextDouble());
+									precioU=sc.nextDouble();
+									listaProducto.get(i).setPrecioU(precioU);
 									System.out.println("Que desea modificar?");
 									System.out.println("1- Origen");
 									System.out.println("2- Categoria");
@@ -148,6 +147,7 @@ public class Main {
 												default: System.out.println("Opcion incorrecta, ingrese nuevamente");
 											}
 										}while(band==true);
+										listaProducto.get(i).setOrigenFabricacion(producto.getOrigenFabricacion());
 										System.out.println("El producto fue modificado con exito!");
 										opc=0;
 										band=false;
@@ -180,6 +180,7 @@ public class Main {
 												default: System.out.println("Opcion incorrecta, ingrese nuevamente");
 											}
 										}while(band==false);
+										listaProducto.get(i).setCategoria(producto.getCategoria());
 										System.out.println("El producto fue modificado con exito!");
 										opc=0;
 										band=false;
