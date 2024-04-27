@@ -125,7 +125,7 @@ public class Main {
 								System.out.println("La efemeride no se encuentra registrada");
 							}
 						}else {
-							
+							System.out.println("No se han cargado efemerides");
 						}
 						break;
 				case 4:
